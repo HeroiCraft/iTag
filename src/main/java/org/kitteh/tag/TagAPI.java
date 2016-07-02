@@ -73,10 +73,10 @@ public class TagAPI extends PluginBase implements PluginLoader
 
         String getName();
     }
-    @Delegate(excludes = Excludes.class, types =
-    {
-        CommandExecutor.class, TabCompleter.class, Plugin.class
-    })
+    //@Delegate(excludes = Excludes.class, types =
+    //{
+    //    CommandExecutor.class, TabCompleter.class, Plugin.class
+    //})
     private static iTag parent;
     @Getter
     private PluginDescriptionFile description;

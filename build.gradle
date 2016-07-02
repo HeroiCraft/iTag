@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'com.bmuschko.nexus' // For Nexus Deploying
+apply plugin: 'idea'
+
+group = 'net.md-5'
+version = '1.1.9-SNAPSHOT'
+
+sourceCompatibility = 1.7
+
+repositories {
+  mavenCentral()
+  maven { url "https://hub.spigotmc.org/nexus/content/groups/public/" }
+  maven { url "http://repo.dmulloy2.net/content/groups/public/" }
+}
+
+dependencies {
+  compile group: 'com.comphenix.protocol', name: 'ProtocolLib-API', version:'4.0-SNAPSHOT'
+  compile group: 'org.bukkit', name: 'bukkit', version:'1.10-R0.1-SNAPSHOT'
+  compile group: 'org.projectlombok', name: 'lombok', version:'1.12.2'
+}
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+  }
+}
+
+nexus {
+  repositoryUrl = 'https://repo.herocc.com/repository/maven-releases/'
+  snapshotRepositoryUrl = 'https://repo.herocc.com/repository/maven-snapshots/'
+}
